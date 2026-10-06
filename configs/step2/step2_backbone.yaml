@@ -1,0 +1,36 @@
+schema_name: pd_definitive_step2_backbone_v1
+random_seed: 13
+paths:
+  step1_atlas: data/processed/step1b/pd_definitive_first_pass_atlas.h5ad
+  source_snapshots_dir: data/processed/step1b/tmp_step1b_sources
+  output_dir: data/processed/step2/00_backbone
+primary_cell_types:
+  - microglia
+  - dopaminergic neuron
+  - astrocyte
+  - endothelial cell
+  - neuron
+exploratory_cell_types:
+  - oligodendrocyte
+  - oligodendrocyte precursor cell
+excluded_primary_cell_types:
+  - cns macrophage
+manifest_columns:
+  - cell_id
+  - source_id
+  - sample_id
+  - sample_accession
+  - donor_id
+  - disease_group
+  - age_years
+  - age_group
+  - sex_standardized
+  - brain_region_standardized
+  - cell_type_standardized_final
+  - cell_type_label_source
+  - cell_type_prediction_confidence
+  - pass_qc
+  - atlas_batch
+  - qc_total_counts
+  - qc_n_genes_by_counts
+  - qc_pct_mt

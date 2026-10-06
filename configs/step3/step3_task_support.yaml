@@ -1,0 +1,6 @@
+paths:
+  output_dir: data/processed/step3/04_task_support
+thresholds:
+  support_fraction_for_shared: 0.25
+  axis_specific_ratio: 2.0
+

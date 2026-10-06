@@ -1,0 +1,34 @@
+# Long label<TAB>Short label used in figure panels
+APOE lipoprotein receptor signaling	APOE-LRP
+SLIT-ROBO direct guidance	SLIT-ROBO (canon.)
+ROBO guidance context organizers	SLIT-ROBO (context)
+APP centered stress signaling	APP stress
+Glutamatergic ionotropic receptor stress	Glu ionotropic
+Glutamatergic metabotropic receptor stress	Glu metabotropic
+Immune neuronal IL18 interface	IL18 interface
+Adhesion organizer network	Adhesion network
+DSCAM and DCC contact recognition	DSCAM-DCC
+adhesion_organizer_network	Adhesion network
+dscam_dcc_contact_recognition	DSCAM-DCC
+exploratory_residual_program	Residual
+nlgn_nrxn_synaptic_organizer	NLGN-NRXN
+slit_robo_guidance	SLIT-ROBO
+microglia_state_03_stress_response	MG stress
+microglia_state_02_homeostatic	MG homeo
+dopaminergic_neuron_state_01_synaptic_organizer	DA syn-org 1
+dopaminergic_neuron_state_02_synaptic_organizer	DA syn-org 2
+dopaminergic_neuron_state_03_synaptic_organizer	DA syn-org 3
+substantia nigra pars compacta	SNpc
+surrounding_tissue	Surrounding
+control_known_age	Control
+pd_known_age	PD
+lbd_bridge	LBD
+unknown_age_auxiliary	Auxiliary
+b0f0b447-ac37-45b0-b1bf-5c0b7d871120	CELLxGENE SNpc
+GSE193688	GSE193688
+GSE140231	GSE140231
+GSE126836	GSE126836
+GSE148434	GSE148434
+GSE157783	GSE157783
+GSE253462	GSE253462
+GSE253975	GSE253975 Visium

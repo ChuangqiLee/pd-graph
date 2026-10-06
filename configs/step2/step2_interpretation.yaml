@@ -1,0 +1,12 @@
+schema_name: pd_definitive_step2_interpretation_v1
+paths:
+  graph_manifest_parquet: data/processed/step2/05_graphs/step2_graph_manifest.parquet
+  lr_universe_full: data/processed/step2/03_lr_universe/step2_lr_universe_full.parquet
+  lr_universe_compact: data/processed/step2/03_lr_universe/step2_lr_universe_compact.parquet
+  age_model_dir: data/processed/step2/06_models/age_model
+  pd_model_dir: data/processed/step2/06_models/pd_model
+  output_dir: data/processed/step2/08_interpretation
+ranking:
+  top_pathways: 25
+  top_lr_pairs: 500
+  top_edges_per_graph: 64

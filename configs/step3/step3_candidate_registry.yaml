@@ -1,0 +1,20 @@
+paths:
+  output_dir: data/processed/step3/01_registry
+thresholds:
+  pair_holdout_warning: 0.25
+  pathway_holdout_warning: 0.05
+  pair_fold_stability_warning: 0.67
+  pair_fold_stability_hard: 0.45
+  pathway_fold_stability_warning: 0.60
+  pathway_fold_stability_hard: 0.40
+  pair_source_stability_warning: 0.80
+  pathway_source_stability_warning: 0.80
+  pair_graph_units_warning: 60
+  pair_graph_units_hard: 40
+  pathway_graph_units_warning: 5
+  pathway_graph_units_hard: 3
+flags:
+  ambiguous_pathway_families:
+    - unclassified
+    - extracellular matrix and adhesion
+    - growth factor signaling

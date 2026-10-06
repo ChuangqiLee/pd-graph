@@ -1,0 +1,8 @@
+paths:
+  output_dir: data/processed/step3/07_confounds
+thresholds:
+  source_majority_share: 0.7
+  cell_count_correlation_warning: 0.45
+  directionality_expression_floor: 0.1
+  validation_ready_min_pair_score: 0.55
+

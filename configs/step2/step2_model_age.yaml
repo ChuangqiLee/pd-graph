@@ -1,0 +1,43 @@
+schema_name: pd_definitive_step2_age_model_v2
+random_seed: 13
+paths:
+  graph_manifest_parquet: data/processed/step2/05_graphs/step2_graph_manifest.parquet
+  graph_dir: data/processed/step2/05_graphs
+  output_dir: data/processed/step2/06_models/age_model
+task_name: microglia_to_dopaminergic_neuron
+cohort_name: control_known_age
+cv:
+  n_splits: 3
+  group_field: split_group_id
+  balance_age: true
+  stratify_fields:
+    - source_id
+calibration:
+  fraction: 0.34
+  min_groups: 2
+  balance_age: true
+  stratify_fields:
+    - source_id
+runtime:
+  device: auto
+  use_amp: true
+  matmul_precision: high
+model:
+  family: hetero_transformer
+  hidden_dim: 96
+  context_hidden_dim: 48
+  num_heads: 4
+  dropout: 0.15
+  num_layers: 3
+training:
+  epochs: 80
+  batch_size: 4
+  accumulation_steps: 4
+  learning_rate: 0.0007
+  weight_decay: 0.0001
+  patience: 12
+  huber_delta: 5.0
+  max_grad_norm: 1.0
+weighting:
+  donor_balance: true
+  source_balance: true

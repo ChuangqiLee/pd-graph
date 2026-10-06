@@ -1,0 +1,20 @@
+paths:
+  output_dir: data/processed/step3/05_states
+clustering:
+  microglia:
+    min_clusters: 4
+    max_clusters: 7
+  dopaminergic neuron:
+    min_clusters: 4
+    max_clusters: 6
+  astrocyte:
+    min_clusters: 4
+    max_clusters: 6
+  endothelial cell:
+    min_clusters: 3
+    max_clusters: 5
+umap:
+  n_neighbors: 20
+  min_dist: 0.35
+  random_state: 13
+

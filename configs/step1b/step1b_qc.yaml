@@ -1,0 +1,41 @@
+schema_name: pd_definitive_step1b_qc_v1
+random_seed: 13
+age_bins:
+  young_max: 39
+  middle_max: 64
+qc_defaults:
+  min_counts: 500
+  min_genes: 200
+  max_genes: 12000
+  max_pct_mt: 20.0
+source_overrides:
+  b0f0b447-ac37-45b0-b1bf-5c0b7d871120:
+    max_genes: 15000
+    max_pct_mt: 25.0
+  GSE193688:
+    max_genes: 12000
+    max_pct_mt: 20.0
+  GSE148434:
+    max_genes: 12000
+    max_pct_mt: 20.0
+  GSE140231:
+    max_genes: 8000
+    max_pct_mt: 25.0
+  GSE126836:
+    max_genes: 8000
+    max_pct_mt: 25.0
+sampling_caps:
+  b0f0b447-ac37-45b0-b1bf-5c0b7d871120: 80000
+  GSE193688: 60000
+  GSE148434: 60000
+integration:
+  join: inner
+  target_sum: 10000
+  n_hvgs: 2500
+  n_pcs: 40
+  n_neighbors: 15
+  min_dist: 0.35
+  spread: 1.0
+  batch_key: atlas_batch
+  hvg_batch_key: source_id
+  label_transfer_neighbors: 15

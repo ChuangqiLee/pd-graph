@@ -1,0 +1,6 @@
+paths:
+  output_dir: data/processed/step3/10_reports
+limits:
+  top_programs_for_report: 10
+  top_pairs_per_program: 5
+

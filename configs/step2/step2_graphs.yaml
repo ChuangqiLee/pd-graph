@@ -1,0 +1,38 @@
+schema_name: pd_definitive_step2_graphs_v1
+random_seed: 13
+paths:
+  comm_panel_h5ad: data/processed/step2/01_comm_panel/pd_definitive_step2_comm_panel.h5ad
+  graph_manifest_csv: data/processed/step2/02_cohorts/step2_graph_manifest.csv
+  lr_universe_compact: data/processed/step2/03_lr_universe/step2_lr_universe_compact.parquet
+  output_dir: data/processed/step2/05_graphs
+tasks:
+  microglia_to_dopaminergic_neuron:
+    sender: microglia
+    receiver: dopaminergic neuron
+  microglia_to_neuron:
+    sender: microglia
+    receiver: neuron
+  astrocyte_to_dopaminergic_neuron:
+    sender: astrocyte
+    receiver: dopaminergic neuron
+  endothelial_to_dopaminergic_neuron:
+    sender: endothelial cell
+    receiver: dopaminergic neuron
+node_caps:
+  microglia: 128
+  dopaminergic neuron: 64
+  neuron: 128
+  astrocyte: 64
+  endothelial cell: 32
+subgraphs:
+  per_graph_unit: 4
+graph_construction:
+  k_neighbors: 10
+  min_active_edge_score: 0.05
+  top_lr_features_per_edge: 16
+node_features:
+  harmony_dims: 24
+  comm_latent_dims: 24
+  include_qc_covariates: true
+  include_annotation_confidence: true
+  include_cell_type_one_hot: true

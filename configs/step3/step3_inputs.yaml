@@ -1,0 +1,118 @@
+paths:
+  output_dir: data/processed/step3/00_inputs
+inputs:
+  - source: idea.md
+    source_phase: project_outline
+    frozen_relpath: docs/idea.md
+    mode: copy
+  - source: STEP1_DATASET_DOSSIER.md
+    source_phase: step1_dossier
+    frozen_relpath: docs/STEP1_DATASET_DOSSIER.md
+    mode: copy
+  - source: step2_summary_dossier.md
+    source_phase: step2_summary
+    frozen_relpath: docs/step2_summary_dossier.md
+    mode: copy
+  - source: data/processed/step2/09_exports/step2_top_candidates_for_step3.csv
+    source_phase: step2_export
+    frozen_relpath: step2_exports/step2_top_candidates_for_step3.csv
+    mode: copy
+  - source: data/processed/step2/09_exports/step2_top_candidates_for_step4.csv
+    source_phase: step2_export
+    frozen_relpath: step2_exports/step2_top_candidates_for_step4.csv
+    mode: copy
+  - source: data/processed/step2/09_exports/step2_top_edge_importance_summary.csv
+    source_phase: step2_export
+    frozen_relpath: step2_exports/step2_top_edge_importance_summary.csv
+    mode: copy
+  - source: data/processed/step2/09_exports/step2_top_pathway_scores_by_donor.csv
+    source_phase: step2_export
+    frozen_relpath: step2_exports/step2_top_pathway_scores_by_donor.csv
+    mode: copy
+  - source: data/processed/step2/08_interpretation/step2_ranked_pathways.csv
+    source_phase: step2_interpretation
+    frozen_relpath: step2_core/step2_ranked_pathways.csv
+    mode: copy
+  - source: data/processed/step2/08_interpretation/step2_ranked_lr_pairs.csv
+    source_phase: step2_interpretation
+    frozen_relpath: step2_core/step2_ranked_lr_pairs.csv
+    mode: copy
+  - source: data/processed/step2/08_interpretation/step2_top_edge_contexts.csv
+    source_phase: step2_interpretation
+    frozen_relpath: step2_core/step2_top_edge_contexts.csv
+    mode: copy
+  - source: data/processed/step2/03_lr_universe/step2_lr_universe_compact.parquet
+    source_phase: step2_universe
+    frozen_relpath: step2_core/step2_lr_universe_compact.parquet
+    mode: hardlink_or_copy
+  - source: data/processed/step2/03_lr_universe/step2_graph_unit_celltype_gene_stats.parquet
+    source_phase: step2_universe
+    frozen_relpath: step2_core/step2_graph_unit_celltype_gene_stats.parquet
+    mode: hardlink_or_copy
+  - source: data/processed/step2/04_baselines/step2_lr_scores.parquet
+    source_phase: step2_baselines
+    frozen_relpath: step2_core/step2_lr_scores.parquet
+    mode: hardlink_or_copy
+  - source: data/processed/step2/04_baselines/step2_pathway_scores.parquet
+    source_phase: step2_baselines
+    frozen_relpath: step2_core/step2_pathway_scores.parquet
+    mode: hardlink_or_copy
+  - source: data/processed/step2/05_graphs/step2_graph_manifest.parquet
+    source_phase: step2_graphs
+    frozen_relpath: step2_core/step2_graph_manifest.parquet
+    mode: hardlink_or_copy
+  - source: data/processed/step2/05_graphs/step2_graph_manifest.csv
+    source_phase: step2_graphs
+    frozen_relpath: step2_core/step2_graph_manifest.csv
+    mode: copy
+  - source: data/processed/step2/01_comm_panel/pd_definitive_step2_comm_panel.h5ad
+    source_phase: step2_comm_panel
+    frozen_relpath: step2_core/pd_definitive_step2_comm_panel.h5ad
+    mode: hardlink_or_copy
+  - source: data/processed/step2/09_exports/step2_embedding_exports.h5ad
+    source_phase: step2_export
+    frozen_relpath: step2_core/step2_embedding_exports.h5ad
+    mode: hardlink_or_copy
+  - source: data/processed/step2/06_models/age_model/age_model_attention_summary.parquet
+    source_phase: step2_models
+    frozen_relpath: step2_core/age_model_attention_summary.parquet
+    mode: hardlink_or_copy
+  - source: data/processed/step2/06_models/pd_model/pd_model_attention_summary.parquet
+    source_phase: step2_models
+    frozen_relpath: step2_core/pd_model_attention_summary.parquet
+    mode: hardlink_or_copy
+  - source: data/processed/step2/07_robustness/step2_holdout_lr_effects.csv
+    source_phase: step2_robustness
+    frozen_relpath: step2_robustness/step2_holdout_lr_effects.csv
+    mode: copy
+  - source: data/processed/step2/07_robustness/step2_holdout_pathway_effects.csv
+    source_phase: step2_robustness
+    frozen_relpath: step2_robustness/step2_holdout_pathway_effects.csv
+    mode: copy
+  - source: data/processed/step2/07_robustness/step2_receiver_robustness.csv
+    source_phase: step2_robustness
+    frozen_relpath: step2_robustness/step2_receiver_robustness.csv
+    mode: copy
+  - source: data/processed/step2/07_robustness/step2_label_confidence_sensitivity.csv
+    source_phase: step2_robustness
+    frozen_relpath: step2_robustness/step2_label_confidence_sensitivity.csv
+    mode: copy
+  - source: data/processed/step2/07_robustness/step2_cell_count_robustness.csv
+    source_phase: step2_robustness
+    frozen_relpath: step2_robustness/step2_cell_count_robustness.csv
+    mode: copy
+  - source: data/processed/step2/07_robustness/step2_lbd_bridge_summary.csv
+    source_phase: step2_robustness
+    frozen_relpath: step2_robustness/step2_lbd_bridge_summary.csv
+    mode: copy
+  - source: data/processed/step2/07_robustness/step2_holdout_gnn_summary.csv
+    source_phase: step2_robustness
+    frozen_relpath: step2_robustness/step2_holdout_gnn_summary.csv
+    mode: copy
+  - source: data/processed/step2/07_robustness/step2_source_task_coverage.csv
+    source_phase: step2_robustness
+    frozen_relpath: step2_robustness/step2_source_task_coverage.csv
+    mode: copy
+notes:
+  - Raw Step 2 graph pickle files remain referenced through the staged graph manifest rather than duplicated into the Step 3 freeze layer.
+

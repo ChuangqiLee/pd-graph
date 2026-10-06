@@ -1,0 +1,72 @@
+schema_name: pd_definitive_step2_pd_model_v2
+random_seed: 13
+paths:
+  graph_manifest_parquet: data/processed/step2/05_graphs/step2_graph_manifest.parquet
+  graph_dir: data/processed/step2/05_graphs
+  output_dir: data/processed/step2/06_models/pd_model
+task_name: microglia_to_dopaminergic_neuron
+cohort_names:
+  - control_known_age
+  - pd_known_age
+  - unknown_age_auxiliary
+bridge_cohort_name: lbd_bridge
+disease_groups:
+  - control
+  - pd
+include_age_missing: true
+cv:
+  n_splits: 3
+  group_field: split_group_id
+  balance_age: true
+  stratify_fields:
+    - disease_target
+    - source_id
+calibration:
+  fraction: 0.40
+  min_groups: 2
+  balance_age: true
+  stratify_fields:
+    - disease_target
+    - source_id
+  platt_l2: 2.0
+  platt_min_groups: 3
+  default_threshold: 0.5
+  threshold_penalty: 0.20
+  prevalence_penalty: 0.10
+  min_threshold_groups: 6
+runtime:
+  device: auto
+  use_amp: true
+  matmul_precision: high
+model:
+  family: hetero_transformer
+  hidden_dim: 96
+  age_hidden_dim: 32
+  context_hidden_dim: 48
+  domain_hidden_dim: 32
+  num_heads: 4
+  dropout: 0.15
+  num_layers: 3
+loss:
+  lambda_age: 0.25
+  lambda_consistency: 0.10
+  lambda_source: 0.05
+source_invariance:
+  enabled: true
+  gradient_reversal_lambda: 0.25
+training:
+  epochs: 100
+  batch_size: 4
+  accumulation_steps: 4
+  learning_rate: 0.0007
+  weight_decay: 0.0001
+  patience: 15
+  max_grad_norm: 1.0
+  use_donor_bags: true
+  donor_loss_weight: 1.0
+  graph_loss_weight: 0.35
+  label_smoothing: 0.02
+  logit_l2_weight: 0.002
+weighting:
+  donor_balance: true
+  source_balance: true

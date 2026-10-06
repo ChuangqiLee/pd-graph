@@ -1,0 +1,138 @@
+schema_name: pd_definitive_step2_comm_panel_v1
+random_seed: 13
+paths:
+  step1_atlas: data/processed/step1b/pd_definitive_first_pass_atlas.h5ad
+  source_snapshots_dir: data/processed/step1b/tmp_step1b_sources
+  backbone_manifest: data/processed/step2/00_backbone/step2_backbone_manifest.parquet
+  output_dir: data/processed/step2/01_comm_panel
+  resource_dir: data/metadata/step2_resources
+resources:
+  cellchatdb_human_rda: https://raw.githubusercontent.com/jinworks/CellChat/main/data/CellChatDB.human.rda
+  nichenet_lr_network_human_rds: https://zenodo.org/record/7074291/files/lr_network_human_21122021.rds
+  nichenet_geneinfo_human_rda: https://raw.githubusercontent.com/saeyslab/nichenetr/master/data/geneinfo_human.rda
+  nichenet_geneinfo_alias_human_rda: https://raw.githubusercontent.com/saeyslab/nichenetr/master/data/geneinfo_alias_human.rda
+normalization:
+  target_sum: 10000.0
+  comm_latent_components: 32
+supplement_gene_sets:
+  cytokine_chemokine:
+    - CCL2
+    - CCL3
+    - CCL4
+    - CCL5
+    - CXCL8
+    - CXCL10
+    - CXCL12
+    - CX3CL1
+    - CX3CR1
+    - TNF
+    - IL1A
+    - IL1B
+    - IL6
+    - IL10
+    - IL15
+    - IFNG
+    - TGFB1
+    - TGFB2
+    - TGFB3
+  complement:
+    - C1QA
+    - C1QB
+    - C1QC
+    - C3
+    - C3AR1
+    - C5
+    - C5AR1
+    - CR1
+    - ITGAM
+    - ITGB2
+  antigen_presentation:
+    - HLA-DRA
+    - HLA-DRB1
+    - HLA-DPA1
+    - HLA-DPB1
+    - HLA-A
+    - HLA-B
+    - HLA-C
+    - CD74
+    - B2M
+  microglial_activation:
+    - AIF1
+    - APOE
+    - CSF1R
+    - FCER1G
+    - GPNMB
+    - LILRB1
+    - P2RY12
+    - SPP1
+    - TREM2
+    - TYROBP
+  neuronal_stress_synaptic:
+    - BDNF
+    - CALB1
+    - DDC
+    - DRD2
+    - GFRA1
+    - GDNF
+    - NRG1
+    - NR4A2
+    - SLC18A2
+    - SLC6A3
+    - SNAP25
+    - SYT1
+    - TH
+  endothelial_barrier:
+    - CLDN5
+    - EMCN
+    - FLT1
+    - ICAM1
+    - KDR
+    - PECAM1
+    - SELE
+    - SELP
+    - VWF
+  astrocyte_reactive:
+    - AQP4
+    - C3
+    - GFAP
+    - HSPB1
+    - SERPINA3
+    - SLC1A2
+    - SLC1A3
+    - VIM
+  pd_relevant:
+    - BAG3
+    - CTSB
+    - CTSD
+    - DNAJC6
+    - FBXO7
+    - GBA
+    - LAMP1
+    - LAMP2
+    - LRRK2
+    - PARK7
+    - PINK1
+    - PRKN
+    - SNCA
+    - TMEM175
+    - VPS35
+sentinel_genes:
+  - TH
+  - P2RY12
+  - CX3CR1
+  - CX3CL1
+  - CSF1R
+  - TNF
+  - IL1B
+  - TGFB1
+  - APOE
+  - C1QA
+  - C1QB
+  - C1QC
+  - HLA-DRA
+  - AQP4
+  - CLDN5
+manual_aliases:
+  IL8: CXCL8
+  TNFA: TNF
+  SCT: SLC5A7

@@ -1,0 +1,121 @@
+schema_name: pd_definitive_step1b_v1
+description: Unified cell metadata schema for Step 1B QC and first-pass atlas integration.
+annotation_priority:
+  - cell_type
+  - author_cell_type
+  - derived_class2
+  - broad_cell_type
+  - class
+  - subclass
+  - major_clust
+  - region
+  - cluster
+obs_fields:
+  - name: cell_id
+    description: Stable cell identifier used as the final obs index.
+  - name: barcode
+    description: Original barcode or cell identifier before source/sample prefixing.
+  - name: source_id
+    description: Source accession or collection id.
+  - name: source_label
+    description: Human-readable source label.
+  - name: source_type
+    description: Source family, e.g. cellxgene or geo.
+  - name: atlas_role
+    description: primary or reference role within Step 1B.
+  - name: atlas_eligible
+    description: Whether the source is included in the first-pass integrated atlas.
+  - name: atlas_exclusion_reason
+    description: Why a source is held out from the first integrated atlas.
+  - name: item_id
+    description: File/member identifier used during ingestion.
+  - name: item_label
+    description: Human-readable asset or sample label.
+  - name: sample_id
+    description: Sample-level identifier used for batch handling.
+  - name: sample_accession
+    description: GEO GSM accession when available.
+  - name: donor_id
+    description: Donor identifier after standardization.
+  - name: donor_group
+    description: High-level donor cohort such as young_control, aged_control, pd, lbd, or control.
+  - name: disease_original
+    description: Original disease label from source metadata.
+  - name: disease_standardized
+    description: Standardized disease term.
+  - name: disease_group
+    description: Broad disease grouping used for QC summaries and sampling.
+  - name: age_text
+    description: Original age text from source metadata.
+  - name: age_years
+    description: Numeric age extracted from age_text when possible.
+  - name: age_group
+    description: Age bucket derived from numeric age or cohort labels.
+  - name: sex_original
+    description: Original sex label from source metadata.
+  - name: sex_standardized
+    description: Standardized sex label.
+  - name: tissue_original
+    description: Original tissue label from source metadata.
+  - name: brain_region_standardized
+    description: Standardized brain region label.
+  - name: assay
+    description: Assay label carried forward from the source.
+  - name: modality
+    description: RNA-related modality used for the loaded matrix.
+  - name: cell_type_original
+    description: Original cell type annotation from source obs when available.
+  - name: cell_type_standardized
+    description: Standardized cell type label before label transfer.
+  - name: cell_type_standardized_final
+    description: Final cell type label after optional label transfer.
+  - name: cell_type_label_source
+    description: Whether the final label is provided, transferred, or unassigned.
+  - name: cell_type_prediction_confidence
+    description: Confidence score from the label transfer step.
+  - name: qc_total_counts
+    description: Total counts per cell after QC metric calculation.
+  - name: qc_n_genes_by_counts
+    description: Number of detected genes per cell after QC metric calculation.
+  - name: qc_pct_mt
+    description: Percent mitochondrial counts per cell.
+  - name: pass_qc
+    description: Whether the cell passed source-specific QC thresholds.
+  - name: atlas_batch
+    description: Batch key used during Harmony integration.
+source_rules:
+  b0f0b447-ac37-45b0-b1bf-5c0b7d871120:
+    source_label: CELLxGENE SNpc disease collection
+    atlas_role: primary
+    atlas_eligible: true
+    atlas_exclusion_reason: ""
+  GSE193688:
+    source_label: GEO human midbrain age plus PD paired multiome
+    atlas_role: primary
+    atlas_eligible: true
+    atlas_exclusion_reason: ""
+  GSE140231:
+    source_label: GEO normal substantia nigra atlas
+    atlas_role: reference
+    atlas_eligible: true
+    atlas_exclusion_reason: ""
+  GSE126836:
+    source_label: GEO human substantia nigra donor matrices
+    atlas_role: reference
+    atlas_eligible: true
+    atlas_exclusion_reason: ""
+  GSE148434:
+    source_label: GEO substantia nigra PD/control multi-omics
+    atlas_role: primary
+    atlas_eligible: true
+    atlas_exclusion_reason: ""
+  GSE253462:
+    source_label: GEO substantia nigra PD/control snRNA-seq companion to GSE253975
+    atlas_role: calibration
+    atlas_eligible: false
+    atlas_exclusion_reason: same_study_as_primary_spatial_validation
+  GSE157783:
+    source_label: GEO human midbrain PD/control snRNA-seq
+    atlas_role: replication
+    atlas_eligible: false
+    atlas_exclusion_reason: dense_umi_matrix_holdout

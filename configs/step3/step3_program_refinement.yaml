@@ -1,0 +1,10 @@
+paths:
+  output_dir: data/processed/step3/02_programs
+similarity:
+  edge_threshold: 0.45
+  donor_correlation_weight: 0.15
+  task_similarity_weight: 0.2
+  pathway_weight: 0.3
+  ligand_family_weight: 0.15
+  receptor_family_weight: 0.2
+

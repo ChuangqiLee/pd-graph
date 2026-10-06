@@ -1,0 +1,69 @@
+schema_name: pd_definitive_step2_cohorts_v1
+paths:
+  backbone_manifest: data/processed/step2/00_backbone/step2_backbone_manifest.parquet
+  comm_panel_h5ad: data/processed/step2/01_comm_panel/pd_definitive_step2_comm_panel.h5ad
+  output_dir: data/processed/step2/02_cohorts
+primary_cell_types:
+  - microglia
+  - dopaminergic neuron
+  - astrocyte
+  - endothelial cell
+  - neuron
+transferred_label_confidence_default: 0.60
+transferred_label_confidence_sensitivity:
+  - 0.55
+  - 0.60
+  - 0.65
+cohorts:
+  control_known_age:
+    disease_groups:
+      - control
+    require_age: true
+  pd_known_age:
+    disease_groups:
+      - pd
+    require_age: true
+  lbd_bridge:
+    disease_groups:
+      - lbd
+    require_age: false
+  unknown_age_auxiliary:
+    disease_groups:
+      - control
+      - pd
+      - lbd
+    require_age: false
+    only_unknown_age: true
+tasks:
+  microglia_to_dopaminergic_neuron:
+    sender: microglia
+    receiver: dopaminergic neuron
+    min_sender_cells: 20
+    min_receiver_cells: 10
+    min_receiver_cells_by_source:
+      GSE140231: 5
+      GSE148434: 5
+      GSE193688: 5
+  microglia_to_neuron:
+    sender: microglia
+    receiver: neuron
+    min_sender_cells: 20
+    min_receiver_cells: 30
+  astrocyte_to_dopaminergic_neuron:
+    sender: astrocyte
+    receiver: dopaminergic neuron
+    min_sender_cells: 15
+    min_receiver_cells: 10
+  endothelial_to_dopaminergic_neuron:
+    sender: endothelial cell
+    receiver: dopaminergic neuron
+    min_sender_cells: 15
+    min_receiver_cells: 10
+region_sensitivity:
+  main_regions:
+    - substantia_nigra
+    - substantia_nigra_pars_compacta
+    - midbrain
+  snpc_enriched_regions:
+    - substantia_nigra
+    - substantia_nigra_pars_compacta

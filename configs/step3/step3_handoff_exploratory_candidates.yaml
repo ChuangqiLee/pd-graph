@@ -1,0 +1,15 @@
+paths:
+  output_dir: data/processed/step3/11_handoff
+thresholds:
+  include_tiers:
+    - validation_ready
+    - strong_narrative
+    - hold_back
+  include_priorities:
+    - high
+    - medium
+  include_candidate_ids:
+    - program::app_centered_stress_signaling
+    - program::immune_neuronal_il18_interface
+    - program::glutamatergic_ionotropic_receptor_stress
+    - program::glutamatergic_metabotropic_receptor_stress

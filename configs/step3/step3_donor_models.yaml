@@ -1,0 +1,7 @@
+paths:
+  output_dir: data/processed/step3/03_donor_patterns
+thresholds:
+  task_support_floor: 0.05
+  bridge_tolerance: 0.1
+  score_quantile_clip: 0.02
+

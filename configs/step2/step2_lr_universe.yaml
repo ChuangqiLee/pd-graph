@@ -1,0 +1,70 @@
+schema_name: pd_definitive_step2_lr_universe_v1
+paths:
+  comm_panel_h5ad: data/processed/step2/01_comm_panel/pd_definitive_step2_comm_panel.h5ad
+  graph_manifest_csv: data/processed/step2/02_cohorts/step2_graph_manifest.csv
+  output_dir: data/processed/step2/03_lr_universe
+filters:
+  min_sender_fraction: 0.10
+  min_receiver_fraction: 0.10
+  min_graph_units: 3
+  compact_min_databases: 1
+compact_priority_families:
+  - cytokine signaling
+  - chemokine signaling
+  - complement
+  - growth factor signaling
+  - antigen presentation and immune checkpoint
+  - extracellular matrix and adhesion
+  - trophic and neuronal support
+  - stress response module
+family_keyword_rules:
+  cytokine signaling:
+    - interleukin
+    - il
+    - interferon
+    - tnf
+    - tgf
+  chemokine signaling:
+    - chemokine
+    - ccl
+    - cxc
+    - cx3c
+  complement:
+    - complement
+    - c1q
+    - c3
+    - c5
+  growth factor signaling:
+    - egf
+    - fgf
+    - pdgf
+    - vegf
+    - ngf
+    - gdnf
+    - csf
+  antigen presentation and immune checkpoint:
+    - hla
+    - mhc
+    - antigen
+    - pdcd1
+    - cd274
+    - cd80
+    - cd86
+  extracellular matrix and adhesion:
+    - coll
+    - integrin
+    - laminin
+    - fn1
+    - sel
+    - cadherin
+  trophic and neuronal support:
+    - neurotroph
+    - semaphorin
+    - eph
+    - netrin
+    - slt
+  stress response module:
+    - gas6
+    - pros1
+    - app
+    - apoe

@@ -1,0 +1,23 @@
+schema_name: pd_definitive_step2_dopaminergic_rescue_v1
+paths:
+  backbone_manifest: data/processed/step2/00_backbone/step2_backbone_manifest.parquet
+  comm_panel_h5ad: data/processed/step2/01_comm_panel/pd_definitive_step2_comm_panel.h5ad
+  output_dir: data/processed/step2/01_comm_panel
+dopaminergic_rescue:
+  target_sources:
+    - GSE148434
+    - GSE193688
+  from_labels:
+    - neuron
+  to_label: dopaminergic neuron
+  allowed_label_sources:
+    - transferred
+  label_source_name: marker_rescue
+  marker_genes:
+    - TH
+    - SLC6A3
+    - NR4A2
+    - DDC
+    - ALDH1A1
+  required_marker_count: 2
+  confidence_floor: 0.70
